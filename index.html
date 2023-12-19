@@ -18,15 +18,87 @@
   </header>
 
   <main id="content">
-    <!-- Content will be dynamically loaded here -->
+    
   </main>
 
+  <div class="lesson-navigation">
+    <button class="prevbut" onclick="showPreviousLesson()">Previous</button>
+    <button class="nextbut" onclick="showNextLesson()">Next</button>
+  </div>
+
   <script>
+   
+    var conten1 = "<p>- JAVASCRIPT IS A POPULAR PROGRAMMING LANGUAGE THAT HAS A WIDE RANGE OF APPLICATIONS.</p><p>- JAVASCRIPT IS A POPULAR PROGRAMMING LANGUAGE THAT HAS A WIDE RANGE OF APPLICATIONS.</p><br><p>BECAUSE OF ITS WIDE RANGE OF APPLICATIONS, YOU CAN RUN JAVASCRIPT IN SERVERAL WAYS:</p><ul><li>Using console tab of web browsers<li>Using Node.js<li>By creating web pages</ul>";
+    var content2 = "<p>- IT ACTS AS A CONTAINER THAT HOLDS DATA THAT CAN BE USED AND MANIPULATED THROUGHOUT A PROGRAM. VARIABLE ARE FUNDAMENTAL TO PROGRAMMING.</p><p>- IN PROGRAMMING A VARIABLE IS A CONTAINER TO HOLD DATA.</p>";
+    var content3 = "<p>- IN JAVASCRIPT WE USE EITHER “var” OR “let” KEYWORD TO DECLARE VARIABLES.</p><br><img src='https://scontent.fmnl25-1.fna.fbcdn.net/v/t39.30808-6/411223927_3455159778083128_4222770457440681881_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=3635dc&_nc_ohc=Nm7ibbC4d_UAX9mKLUo&_nc_ht=scontent.fmnl25-1.fna&oh=00_AfCCwU6xVlQxS_NLLz6eI8CvtAF10rTU8DAzagm8yj8q1g&oe=6585E955' style='width: 590px; height: 100px;'>";
+    var content4 = "<p>- IT IS POSSIBLE TO CHANGE THE VALUE STORED IN VARIABLE, FOR EXAMPLE:<br><img src='https://scontent.fmnl25-1.fna.fbcdn.net/v/t39.30808-6/412428179_3455161918082914_5977893099050588201_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=3635dc&_nc_ohc=9OswqHOdxYkAX89J_eA&_nc_ht=scontent.fmnl25-1.fna&oh=00_AfDgLbn4_cojdA2mAUPW9S5wA5UvWgu00XH41g67TubWPg&oe=658613DB' style='height: 200px; width: 590px;'>";
+    var content5 = "<p>- RULES FOR NAMING JAVASCRIPT VARIABLES:</p><p><ol><li>VARIABLE NAMES MUST START WITH EITHER A LETTER, AN UNDERSCORE _, OR THE DOLLAR SIGN $.<li>VARIABLE NAMES CANNOT START WITH NUMBERS<li>JAVASCRIPT IS CASE-SENSITIVE. SO “y” AND “Y” ARE DIFFERENT VARIABLES<li>KEYWORDS CANNOT BE USED AS VARIABLE NAMES</ol>";
+    var content6 = "<p>- JAVASCRIPT console.log() METHOD IS USED TO WRITE MESSAGES TO THESE CONSOLES.</p><br><img src='https://scontent.fmnl25-2.fna.fbcdn.net/v/t39.30808-6/412501092_3455168251415614_1053481064342992492_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=3635dc&_nc_ohc=HUPAUR6A-zsAX9FwAvB&_nc_ht=scontent.fmnl25-2.fna&oh=00_AfAMmiwIJgIVRRRBrMH01MtIBeWFnDGLJWN-P0Q627E3lw&oe=6585809C' style='heigth: 350px; width: 590px;'>";
+    var content7 = "<p>- THERE ARE EIGHT BASIC DATA TYPES IN JAVASCRIPT:</p><ol><li>STRING- REPRESENT TEXTUAL DATA.<li>NUMBER- AN INTEGER OR A FLOATING POINT NUMBER.<li>BIGINT- AN INTEGER WITH ARBITRARY PRECISION.<li>BOOLEAN- ANY TWO VALUES: TRUE OR FALSE.<li>UNDEFINED- A DATA TYPE WHOSE VARIABLE IS NOT INITIALIZED.<li>NULL- DENOTES A NULL VALUE<li>SYMBOL- DATA TYPE WHOSE INSTANCES ARE UNIQUE AND IMMUTABLE.<li>OBJECT- KEY-VALUE PAIRS OF COLLECTION OF DATA.</ol>";
+    var content8 = "<p>- STRING IS USED TO STORE TEXT. IN JAVASCRIPT, STRING ARE SURROUNDED BY QUOTES.</p><ul><li>SINGLE QUOTES<li>DOUBLE QUOTES<li>BACKTICKS</ul><img src='https://scontent.fmnl25-4.fna.fbcdn.net/v/t39.30808-6/412632814_3455174688081637_994677387730936720_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=3635dc&_nc_ohc=2D_GAbLYA18AX-5m0IL&_nc_ht=scontent.fmnl25-4.fna&oh=00_AfBHRPxkzLQoirKlsX48NXvWMbpyGFX37aMUvZN-Ve9dyQ&oe=6586BB2F' style='heigth: 230px; width: 590px;'>";
+    var content9 = "<p>- NUMBER REPRESENT INTEGER AND FLOATING NUMBERS.</p><img src='https://scontent.fmnl25-3.fna.fbcdn.net/v/t39.30808-6/412464555_3455177644748008_2049546171120297290_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=3635dc&_nc_ohc=v-mPgCxVFx0AX-GFpKY&_nc_ht=scontent.fmnl25-3.fna&oh=00_AfCWfiXVH2V0FQf_GaA-d-khgO625mNPSE5poCaU1eqN4Q&oe=658633E8' style='heigth: 220px; width: 590px;'>";
+    var content10 = "<p>- A NUMBER TYPE CAN ONLY REPRESENT NUMBERS LESS THAN(2⁵³-1)AND MORE THAN (2⁵³-1).</p><br><img src='https://scontent.fmnl25-1.fna.fbcdn.net/v/t39.30808-6/412424523_3455401154725657_82544548059783705_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=3635dc&_nc_ohc=ufIN88FlARUAX9743U5&_nc_ht=scontent.fmnl25-1.fna&oh=00_AfB849h84_BCb3dwr8ek16rAzZVnc9l61yqbkmrYn5zN-w&oe=6586E364' style='heigth: 400px; width: 590px;'>";
+    var content11 = "<p>- HIS DATA TYPE REPRESENTS LOGICAL ENTITIES.</p><p>- REPRESENT ONE OR TWO VALUES: true or false.</p><img src='https://scontent.fmnl25-5.fna.fbcdn.net/v/t39.30808-6/412417705_3455402701392169_7963991491119994122_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=3635dc&_nc_ohc=fud1foK4IQQAX9hs4AI&_nc_ht=scontent.fmnl25-5.fna&oh=00_AfDwFYYP-N3E0HuOl7GE89XbGFH6JdoSU4FG9rbrH4czZg&oe=6585AA49' style='heigth: 190px; width: 590px;'>";
+    var content12 = "<p>- AN OPERATOR IS A SYSBOL USED TO PERFORM OPERATIONS AND OPERANDS VALUES AND VARIABLES.</p><p>- TYPES OF OPERATORS:</p><ul><li>ASSIGNMENT OPERATOR<li>ARITHMETIC OPERATOR<li>COMPARISON OPERATOR<li>LOGICAL OPERATOR<li>BITWISE OPERATOR<li>STRING OPERATOR<li>OTHER OPERATORS</ul>";
+    var content13 = "<p>- ARE USE TO ASSIGN VALUES AND VARIABLES.</p><img src='https://scontent.fmnl25-3.fna.fbcdn.net/v/t39.30808-6/412574892_3455409481391491_1545650202422849837_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=3635dc&_nc_ohc=HJsxPKfEaNQAX_KSJP9&_nc_ht=scontent.fmnl25-3.fna&oh=00_AfDk71YTN3u-nypvvmw_PvrWe20xlH0OP0X2W4JjKc8n_A&oe=65870670' style='heigth: 160px; width: 590px;'><p>- HERE, THE = OPERATOR IS USED TO ASSIGN VALUE 5 TO VARIABLE X.</p>";
+    var content14 = "<p>- ARE USED TO PERFORM ARITHMETIC CALCULATIONS.</p><img src='https://scontent.fmnl25-3.fna.fbcdn.net/v/t39.30808-6/412445644_3455413644724408_3316409754897295973_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=3635dc&_nc_ohc=6gq9MrPRS-UAX96xzfN&_nc_ht=scontent.fmnl25-3.fna&oh=00_AfBZgSy1CVBCTdM88lgp_ou2jIUaFeKKTK3LNXOo4YVFIg&oe=6586E6A1' style='heigth: 200px; width: 590px;'><ul><li>ADDITION = +<li>SUBTRACTION = -<li>MULTIPLICATION = *<li>DIVISION = /<li>REMAINDER = %</ul>";
+    var content15 = "<p>- COMPARE TWO VALUES AND RETURN A BOOLEAN VALUE EITHER true or false.</p><img src='https://scontent.fmnl25-2.fna.fbcdn.net/v/t39.30808-6/412390202_3455417448057361_2613507013943716542_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=3635dc&_nc_ohc=ZetJK36dBCYAX9xQmlZ&_nc_ht=scontent.fmnl25-2.fna&oh=00_AfD1icciMcZBKqYzPqarLL7mfhj4y0BF2gO1DgJ7zdrjZQ&oe=6586C5D6' style='heigth: 220px; width: 590px;'>";
+    var content16 = "<p>- PERFORM LOGICAL OPERATION AND RETURN A BOOLEAN VALUE, EITHER true or false.</p><img src='https://scontent.fmnl25-5.fna.fbcdn.net/v/t39.30808-6/412405199_3455418964723876_4897019815954253418_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=3635dc&_nc_ohc=9oJlxuN93JwAX_HTNvX&_nc_ht=scontent.fmnl25-5.fna&oh=00_AfC1QTV0PMBxefZgdoUjhIhwdbaxd5Y5XVD0kcR_xmGPjA&oe=65873FAF' style='heigth: 230px; width: 590px;'><p>- IS THE LOGICAL OPERATOR AND. SINCE BOTH × < 6 AND y < 5 are true, THE RESULT IS TRUE.</p>";
+    var content17 = "<p>- YOU CAN ALSO USE THE + OPERATOR TO CONCATENATE (JOIN) TWO OR MORE STRINGS.</p><img src='https://scontent.fmnl25-5.fna.fbcdn.net/v/t39.30808-6/412368403_3455420621390377_6435954737327972337_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=3635dc&_nc_ohc=difjmJ3BEXIAX8SrfGW&_nc_ht=scontent.fmnl25-5.fna&oh=00_AfB4i-Q1tBuhHlBwsdCqWFhiizA7a00UjG8ib0H4qgEX-Q&oe=65871E34' style='heigth: 300px; width: 590px;'>";
+    var content18 = "<p>-	ARE HINTS THAT A PROGRAMMER CAN ADD TO MAKE THEIR CODE EASIER TO READ AND UNDERSTAND.</p><p>- THERE ARE TWO WAYS TO ADD COMMENTS TO CODE:</p><ul><li>SINGLE LINE COMMENTS - //<li>MULTI LINE COMMENTS - /* */</ul>";
+    var content19 = "<p>- ARE USE TO MAKE DECISIONS IN YOUR CODE BASED ON SPECIFIC CONDITIONS.THESE STATEMENTS ALLOWS YOU TO CONTROL THE FLOW OF YOUR PROGRAM, EXECUTING DIFFERENT BLOCKS OF CODE DEPENDING ON WHETHER A CONDITION IS TRUE OR FALSE.</p>";
+    var content20 = "<p>- THE IF STATEMENT EVALUATES THE CONDITION INSIDE THE PARENTHESIS ().</p><img src='https://scontent.fmnl25-3.fna.fbcdn.net/v/t39.30808-6/412624127_3455424424723330_766736077354717376_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=3635dc&_nc_ohc=sjyJlArZvPsAX_KZLdT&_nc_ht=scontent.fmnl25-3.fna&oh=00_AfBaGpU0bloN8Q67dl3mHnF1oBY5ePSbkzxoOupTsunAmA&oe=6585E9B1' style='heigth: 370px; width: 590px;'>";
+    var content21 = "<p>- AN IF STATEMENT CAN HAVE AN OPTIONAL ELSE CLAUSE.</p><img src='https://scontent.fmnl25-3.fna.fbcdn.net/v/t39.30808-6/412374858_3455425718056534_2302944512357355951_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=3635dc&_nc_ohc=IU9N4wrQXfwAX82AM5b&_nc_ht=scontent.fmnl25-3.fna&oh=00_AfAUo3UpiT7fRHMGaZlBfZITxBIpl4JmRvK2dEiIcflbpw&oe=65869888' style='heigth: 420px; width: 590px;'>";
+    var content22 = "FD";
+    var content23 = "DS";
+    var content24 = "FSF";
+    var content25 = "FS";
+    var content26 = "FS";
+    var content27 = "SE";
+    var content28 = "DS";
+    var content29 = "DS";
+    var content30 = "FS";
+
+    var currentLessonIndex = 0;
+
+    var lessons = [
+      { title: "Lesson 1: Introduction to JavaScript", content: (conten1) },
+      { title: "Lesson 2: JavaScript Variables", content: (content2) },
+      { title: "Lesson 3: Declaring Variables", content: (content3) },
+      { title: "Lesson 4: Changing Values", content: (content4) },
+      { title: "Lesson 5: Rules for Naming Variables", content: (content5) },
+      { title: "Lesson 6: JavaScript Console.log()", content: (content6) },
+      { title: "Lesson 7: JavaScript Data Types", content: (content7) },
+      { title: "Lesson 8: JavaScript String", content: (content8) },
+      { title: "Lesson 9: JavaScript Number", content: (content9) },
+      { title: "Lesson 10: JavaScript BigInt", content: (content10) },
+      { title: "Lesson 11: JavaScript Boolean", content: (content11) },
+      { title: "Lesson 12: JavaScript Operators", content: (content12) },
+      { title: "Lesson 13: Assignment Operators", content: (content13) },
+      { title: "Lesson 14: Arithmetic Operators", content: (content14) },
+      { title: "Lesson 15: Comparison Operators", content: (content15) },
+      { title: "Lesson 16: Logical Operators", content: (content16) },
+      { title: "Lesson 17: String Operators", content: (content17) },
+      { title: "Lesson 18: JavaScript Comments", content: (content18) },
+      { title: "Lesson 19: Conditional Statements", content: (content19) },
+      { title: "Lesson 20: If Statement", content: (content20) },
+      { title: "Lesson 21: If Else Statement", content: (content21) },
+      { title: "Lesson 22: If Else If Statement", content: (content22) },
+      { title: "Lesson 23: Nested If Else Statement", content: (content23) },
+      { title: "Lesson 24: Switch Statement", content: (content24) },
+      { title: "Lesson 25: JavaScript For Loop", content: (content25) },
+      { title: "Lesson 26: JavaScript While Loop", content: (content26) },
+      { title: "Lesson 27: JavaScript Infinite While Loop", content: (content27) },
+      { title: "Lesson 28: JavaScript Break Statement", content: (content28) },
+      { title: "Lesson 29: JavaScript Function", content: (content29) },
+      { title: "Lesson 30: Declaring A Function", content: (content30) },
+    ];
+
     function showPage(page) {
       var content = document.getElementById('content');
       if (page === 'home') {
         content.innerHTML = `
-          <h2 align="center">Welcome to Our Webpage</h2>
+        <h2 align="center">Welcome to Our Webpage</h2>
           <ol>
           <li>Click The Lessons to see all javaScript Lessons.</li>
           <li>Click About to view the members of this project.</li>
@@ -34,64 +106,65 @@
           <hr>
           <h4 align="center">This is created by the ACT-2C Group 3.</h4>
         `;
-
       } else if (page === 'lessons') {
-        content.innerHTML = `
-          <h2 align="center"><font color=gray>Click the Lesson you want to view:</font></h2>
-          <hr>
-
-          <div class="lesson" onclick="toggleLesson('lesson1')">
-            <h2>Lesson 1: Introduction to JavaScript</h2>
-          </div>
-          <div id="lesson1" class="lesson-content">
-            <p>Lesson 1 here....</p>
-          </div>
-
-          <div class="lesson" onclick="toggleLesson('lesson2')">
-            <h2>Lesson 2: Variables and Data Types</h2>
-          </div>
-          <div id="lesson2" class="lesson-content">
-            <p>Lesson 2 here....</p>
-          </div>
-
-          <div class="lesson" onclick="toggleLesson('lesson3')">
-            <h2>Lesson 3: Operators</h2>
-          </div>
-          <div id="lesson3" class="lesson-content">
-            <p>Lesson 3 here....</p>
-          </div>
-          
-        `;
+        showLesson(currentLessonIndex);
       } else if (page === 'about') {
         content.innerHTML = `
-          <h2 align="center">Group Members:</h2>
-          <font color=darkmagenta>
-          <center>
+        <center>
+          <h2>Group Members:</h2><hr>
           <p>Malate, Brix S.</p>
-          <p>Dequina, Kristine Jelcy</p>
+          <Dequina, Khristine Jelcy</p>
           <p>Abutal, John Elbert</p>
           <p>Abutal, Kim Albert</p>
           <p>Carvajal, Mary Jine</p>
           <p>Songco, Aldrin L.</p>
-          <p>Tumalak, Agatha P.</p>
-          <p>Macalintal, Pogi</p>
-          <p>River, Ronel</p>
+          <p>Tumulak, Agatha P.</p>
+          <p>Macalintal, Apollo</p>
+          <p>Rivera, Ronel</p>
           <p>Toledo, Jay Ann</p>
+          <p>Delos Reyes, Lyca</p>
+          <p>Laguatan, Manuel</p>
           <p>Punzalan, Miguel</p>
-          </font></center>
-          <hr>
-          <h3>If you have a question just chat me on my fb acount<br><br><center><i>fb link:<a class="fb-link" href="https://www.facebook.com/malate191"><u>Brix Malate</i></u></center></a></h3>
+          </center>
         `;
       }
+    }
+
+    function showLesson(index) {
+      var lessonContent = document.getElementById('content');
+      lessonContent.innerHTML = `
+      <h2 align="center"><font color=gray>Click the Lesson you want to view:</font></h2>
+          <hr>
+
+          <div class="lesson" onclick="toggleLesson('lesson${index + 1}')">
+          <h2>${lessons[index].title}</h2>
+        </div>
+        <div id="lesson${index + 1}" class="lesson-content">
+          <p>${lessons[index].content}</p>
+        </div>
+      `;
     }
 
     function toggleLesson(lessonId) {
       var lessonContent = document.getElementById(lessonId);
       lessonContent.style.display = (lessonContent.style.display === 'none') ? 'block' : 'none';
     }
+
+    function showNextLesson() {
+      if (currentLessonIndex < lessons.length - 1) {
+        currentLessonIndex++;
+        showLesson(currentLessonIndex);
+      }
+    }
+
+    function showPreviousLesson() {
+      if (currentLessonIndex > 0) {
+        currentLessonIndex--;
+        showLesson(currentLessonIndex);
+      }
+    }
   </script>
 
-  <!-- Show home page by default -->
   <script>
     showPage('home');
   </script>
